@@ -1,0 +1,12 @@
+/bitrix/
+/upload/
+/.idea/
+/vendor/
+*.pdf
+*.docx
+*.log
+*.txt
+*.doc
+*.ppt
+*.pptx
+
