@@ -14,29 +14,3 @@ function writeToLog($data, $title = ''){
 $var = [];
 Bitrix\Main\Diag\Debug::writeToFile($var, $varName = '', $fileName = '');
 Bitrix\Main\Diag\Debug::dumpToFile($var, $varName = '', $fileName = '');
-
-//Замер времени выполнения кода
-Bitrix\Main\Diag\Debug::startTimeLabel('SomeLabel');
-Bitrix\Main\Diag\Debug::endTimeLabel('SomeLabel');
-Bitrix\Main\Diag\Debug::dump(Bitrix\Main\Diag\Debug::getTimeLabels());
-// array(1) {
-// ["SomeLabel"]=>
-// array(2) {
-// ["start"]=>
-// float(1536585978.9713)
-// ["time"]=>
-// float(0.0065689086914062)
-// }
-// }
-
-//Получение стека вызова функций
-Bitrix\Main\Diag\Helper::getBackTrace($limit = 0, $options = null);
-
-
-//Отладка SQL-запросов
-\Bitrix\Main\Application::getConnection()->startTracker(false);
-$query = $strEntityDataClass::getList($arEntityDataParams);
-\Bitrix\Main\Application::getConnection()->stopTracker();
-$sql = $query->getTrackerQuery()->getSql();
-/*Можно также использовать объект возвращаемый методом startTracker. В нем будут
-объекты всех запросов, их можно перебирать.*/
